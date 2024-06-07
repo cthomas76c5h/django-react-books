@@ -14,11 +14,11 @@ export default function BookDetail({ book, onDeleteBook, onRateBook }) {
             selectedValue={book.rating.toString()}
             onValueChange={newRating => onRateBook(book.isbn, parseInt(newRating))}>
             <Picker.Item label="No rating" value="0" />
-            <Picker.Item label="*" value="1" />
-            <Picker.Item label="**" value="2" />
-            <Picker.Item label="***" value="3" />
-            <Picker.Item label="****" value="4" />
-            <Picker.Item label="*****" value="5" />
+            <Picker.Item label="⭐" value="1" />
+            <Picker.Item label="⭐⭐" value="2" />
+            <Picker.Item label="⭐⭐⭐" value="3" />
+            <Picker.Item label="⭐⭐⭐⭐" value="4" />
+            <Picker.Item label="⭐⭐⭐⭐⭐" value="5" />
             </Picker>
             <Pressable onPress={() => onDeleteBook(book.isbn)}>
                 <Text>Delete</Text>
