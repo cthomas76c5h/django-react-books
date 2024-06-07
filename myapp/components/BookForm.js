@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextInput, Pressable, View, Text } from 'react-native';
+import { TextInput, Pressable, View, Text, StyleSheet } from 'react-native';
 
 export default function BookForm({ onAddBook }) {
   const [isbn, setIsbn] = useState('')
@@ -40,11 +40,36 @@ export default function BookForm({ onAddBook }) {
 
   return (
     <View>
-      <TextInput value={isbn} onChangeText={newIsbn => setIsbn(newIsbn)}
+      <TextInput style={styles.textInput} value={isbn} onChangeText={newIsbn => setIsbn(newIsbn)}
                  placeholder='Enter ISBN' maxLength={17} required />
-      <Pressable onPress={handleAddBook}>
-        <Text>Add Book</Text>
+      <Pressable style={styles.button} onPress={handleAddBook}>
+        <Text style={styles.text}>Add Book</Text>
       </Pressable>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  textInput: {
+    height: 40,
+    margin: 10,
+    borderWidth: 1,
+    padding: 12,
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 10,
+    padding: 12,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'black',
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
+});

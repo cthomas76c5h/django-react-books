@@ -11,7 +11,7 @@ export default function BookDetail({ book, onDeleteBook, onRateBook }) {
                 <Image source={book.cover} style={styles.image} />
             </View>
             <Picker
-            selectedValue={book.rating}
+            selectedValue={book.rating.toString()}
             onValueChange={newRating => onRateBook(book.isbn, parseInt(newRating))}>
             <Picker.Item label="No rating" value="0" />
             <Picker.Item label="*" value="1" />
@@ -29,12 +29,7 @@ export default function BookDetail({ book, onDeleteBook, onRateBook }) {
 
 const styles = StyleSheet.create({
   imageContainer: {
-    flex: 1,
-    paddingTop: 58,
   },
   image: {
-    width: 320,
-    height: 440,
-    borderRadius: 18,
   },
 });
