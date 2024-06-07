@@ -6,7 +6,7 @@ Book Inventory App using React Native and Django
 ```bash
 cd backend
 python manage.py migrate
-python manage.py runserver
+python manage.py runserver <IP>:<PORT>
 ```
 
 ## App
