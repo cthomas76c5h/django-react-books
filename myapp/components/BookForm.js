@@ -19,7 +19,7 @@ export default function BookForm({ onAddBook }) {
         isbn: isbn,
         title: bookData.title ? bookData.title : 'Untitled',
         author: bookData.authors ? bookData.authors[0].name : 'Unknown author',
-        cover: bookData.cover ? bookData.cover.medium : 'No_Cover.jpg',
+        cover: bookData.cover ? bookData.cover.medium : 'assets/No_Cover.jpg',
         rating: 0,
       }
       const ok = onAddBook(book);
