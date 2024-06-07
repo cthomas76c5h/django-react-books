@@ -72,5 +72,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 40,
+    marginLeft: 10,
+    marginRight: 10,
   },
 });

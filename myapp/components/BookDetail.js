@@ -1,6 +1,8 @@
 import { StyleSheet, Pressable, View, Text, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
+const NoCoverImage = require('../assets/No_Cover.jpg');
+
 export default function BookDetail({ book, onDeleteBook, onRateBook }) {
     return (
         <View>
@@ -8,7 +10,7 @@ export default function BookDetail({ book, onDeleteBook, onRateBook }) {
             <Text>{book.author}</Text>
             <Text>{book.isbn}</Text>
             <View style={styles.imageContainer}>
-                <Image source={book.cover} style={styles.image} />
+                <Image source={book.cover === 'No Cover' ? NoCoverImage : {uri: book.cover}} style={styles.image} />
             </View>
             <Picker
             selectedValue={book.rating.toString()}
@@ -20,8 +22,8 @@ export default function BookDetail({ book, onDeleteBook, onRateBook }) {
             <Picker.Item label="⭐⭐⭐⭐" value="4" />
             <Picker.Item label="⭐⭐⭐⭐⭐" value="5" />
             </Picker>
-            <Pressable onPress={() => onDeleteBook(book.isbn)}>
-                <Text>Delete</Text>
+            <Pressable style={styles.button} onPress={() => onDeleteBook(book.isbn)}>
+                <Text style={styles.text}>Delete</Text>
             </Pressable>
         </View>
     );
@@ -29,7 +31,31 @@ export default function BookDetail({ book, onDeleteBook, onRateBook }) {
 
 const styles = StyleSheet.create({
   imageContainer: {
+    flex: 1,
+    padding: 5,
   },
   image: {
+    width: 250,
+    height: 350,
+    borderRadius: 10,
+    margin: 20,
+  },
+  button: {
+    color: '#2196F3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 200,
+    margin: 10,
+    padding: 12,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'black',
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   },
 });
