@@ -33,15 +33,16 @@ export default function BookForm({ onAddBook }) {
     setIsbn('');
   };
 
-  const handleChange = (e) => {
-    const value = e.target.value.replace(/\D/g, "");
+  const handleChange = (text) => {
+    const value = text.replace(/[^0-9]/g, '');
     setIsbn(value);
   };
 
   return (
     <View>
-      <TextInput style={styles.textInput} value={isbn} onChangeText={newIsbn => setIsbn(newIsbn)}
-                 placeholder='Enter ISBN' maxLength={17} required />
+      <TextInput style={styles.textInput} value={isbn} onChangeText={handleChange}
+                 placeholder='Enter ISBN' maxLength={17}
+                 keyboardType='numeric' required />
       <Pressable style={styles.button} onPress={handleAddBook}>
         <Text style={styles.text}>Add Book</Text>
       </Pressable>
